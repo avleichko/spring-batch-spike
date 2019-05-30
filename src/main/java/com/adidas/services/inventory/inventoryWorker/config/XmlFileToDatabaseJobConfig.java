@@ -60,7 +60,7 @@ public class XmlFileToDatabaseJobConfig {
                                ItemWriter<Student> xmlFileDatabaseItemWriter,
                                StepBuilderFactory stepBuilderFactory) {
         return stepBuilderFactory.get("xmlFileToDatabaseStep")
-                .<Student, Student>chunk(1)
+                .<Student, Student>chunk(100)
                 .reader(xmlFileItemReader)
                 .processor(xmlFileItemProcessor)
                 .writer(xmlFileDatabaseItemWriter)
